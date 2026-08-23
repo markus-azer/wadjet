@@ -1,0 +1,14 @@
+{
+	// referenced by rule id in .secretlintrc.json, not imported
+	"ignoreDependencies": ["@secretlint/secretlint-rule-preset-recommend"],
+	// system binary invoked by lint-staged for *.tf files, not an npm package
+	"ignoreBinaries": ["terraform"],
+	"workspaces": {
+		"apps/*": {
+			"project": "{src,test}/**/*.ts"
+		},
+		"packages/*": {
+			"project": "{src,test}/**/*.ts"
+		}
+	}
+}
