@@ -1,5 +1,6 @@
 pnpm exec lint-staged
 pnpm typecheck
 pnpm arch
+pnpm deadcode
 pnpm peers check
 pnpm spec-check
