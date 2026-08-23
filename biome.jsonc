@@ -25,6 +25,10 @@
 	"linter": {
 		"rules": {
 			"recommended": true,
+			"complexity": {
+				// Cognitive complexity over the default threshold means split the function
+				"noExcessiveCognitiveComplexity": "error"
+			},
 			"suspicious": {
 				// No explicit any; use unknown and narrow
 				"noExplicitAny": "error",
