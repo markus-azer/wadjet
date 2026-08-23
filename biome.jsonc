@@ -42,6 +42,24 @@
 				"noProcessEnv": "error",
 				// Ban the non-null `!` assertion
 				"noNonNullAssertion": "error",
+				// Never reassign a function parameter
+				"noParameterAssign": "error",
+				// Named exports only. Default exports can't be barrel re-exported by name
+				"noDefaultExport": "error",
+				// Consistent identifier casing (acronyms like DTO/URL stay as one word)
+				"useNamingConvention": {
+					"level": "error",
+					"options": {
+						"strictCase": false,
+						"conventions": [
+							// Error codes read as constants, not type names
+							{
+								"selector": { "kind": "enumMember" },
+								"formats": ["CONSTANT_CASE"]
+							}
+						]
+					}
+				},
 				// Require `import type` for type-only imports (pairs with verbatimModuleSyntax)
 				"useImportType": "error",
 				// Filenames: kebab-case or camelCase, no PascalCase
@@ -92,7 +110,9 @@
 			"linter": {
 				"rules": {
 					"style": {
-						"noProcessEnv": "off"
+						"noProcessEnv": "off",
+						// Keys must match the real variable names, which are SCREAMING_SNAKE_CASE
+						"useNamingConvention": "off"
 					}
 				}
 			}
@@ -121,6 +141,39 @@
 				"rules": {
 					"suspicious": {
 						"noConsole": "off"
+					}
+				}
+			}
+		},
+		{
+			// Mocks name properties after the real export they replace (e.g. a class).
+			"includes": ["**/test/**", "**/*.spec.ts"],
+			"linter": {
+				"rules": {
+					"style": {
+						"useNamingConvention": "off"
+					}
+				}
+			}
+		},
+		{
+			// Build tool configs require a default export.
+			"includes": ["**/*.config.ts"],
+			"linter": {
+				"rules": {
+					"style": {
+						"noDefaultExport": "off"
+					}
+				}
+			}
+		},
+		{
+			// authorization_servers is an OAuth spec (RFC 9728) field name, not ours to rename
+			"includes": ["**/auth.controller.ts"],
+			"linter": {
+				"rules": {
+					"style": {
+						"useNamingConvention": "off"
 					}
 				}
 			}
