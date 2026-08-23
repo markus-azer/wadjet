@@ -1,7 +1,8 @@
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { InMemoryTransport } from "@modelcontextprotocol/sdk/inMemory.js";
 import { onTestFinished } from "vitest";
-import { createMcpServer, type McpTool } from "~/infrastructure/http/index";
+import type { McpTool } from "~/infrastructure/http/index";
+import { createMcpServer } from "~/infrastructure/http/mcp";
 
 // Spin up an MCP server with the given tools and return a client wired to it
 // over an in-memory transport. The connection closes itself when the test ends.
