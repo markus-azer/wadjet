@@ -1,6 +1,5 @@
 export { AppRouter } from "./app-router";
-export { createMcpServer, McpTool, PrivateToolNames } from "./mcp";
-export { mcpAuthMiddleware } from "./mcp-auth.middleware";
+export { McpTool, PrivateToolNames } from "./mcp";
 export { MetricsServer } from "./metrics-server";
 export { AuthRouter } from "./routes/auth.router";
 export { HealthRouter } from "./routes/health.router";
