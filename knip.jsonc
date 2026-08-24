@@ -1,6 +1,10 @@
 {
-	// referenced by rule id in .secretlintrc.json, not imported
-	"ignoreDependencies": ["@secretlint/secretlint-rule-preset-recommend"],
+	"ignoreDependencies": [
+		// referenced by rule id in .secretlintrc.json, not imported
+		"@secretlint/secretlint-rule-preset-recommend",
+		// peer dependency @promster/metrics imports at runtime for the /metrics endpoint
+		"prom-client"
+	],
 	// system binary invoked by lint-staged for *.tf files, not an npm package
 	"ignoreBinaries": ["terraform"],
 	"workspaces": {
