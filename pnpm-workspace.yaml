@@ -11,6 +11,3 @@ overrides:
   zod: 4.3.6
   fast-uri: 3.1.6
   qs: 6.16.0
-auditConfig:
-  ignoreGhsas:
-    - GHSA-mh99-v99m-4gvg # brace-expansion DoS: otel gcp-detector only, not attacker-facing, otel disabled
